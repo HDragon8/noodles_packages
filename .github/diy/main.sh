@@ -25,6 +25,8 @@ git clone --depth 1 https://github.com/fw876/helloworld && mvdir helloworld
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall1 && mv -n passwall1/luci-app-passwall  ./; rm -rf passwall1
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 passwall2 && mv -n passwall2/luci-app-passwall2 ./;rm -rf passwall2
 git clone --depth 1 https://github.com/Lienol/openwrt-package
+git clone --depth 1 https://github.com/messense/aliyundrive-webdav aliyundrive && mv -n aliyundrive/openwrt/* ./ ; rm -rf aliyundrive
+git clone --depth 1 https://github.com/messense/aliyundrive-fuse aliyundrive && mv -n aliyundrive/openwrt/* ./;rm -rf aliyundrive
 git clone --depth 1 https://github.com/ysc3839/openwrt-minieap
 git clone --depth 1 https://github.com/ysc3839/luci-proto-minieap
 git clone --depth 1 https://github.com/BoringCat/luci-app-mentohust
@@ -93,6 +95,8 @@ git clone --depth 1 https://github.com/sirpdboy/netspeedtest && mvdir netspeedte
 git clone --depth 1 https://github.com/HDragon8/add_openwrt_Build_name
 git clone --depth 1 https://github.com/gngpp/luci-app-design-config
 git clone --depth 1 -b js https://github.com/gngpp/luci-theme-design
+git clone --depth 1https://github.com/jerrykuku/luci-theme-argon
+git clone --depth 1https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth 1 https://github.com/esirplayground/LingTiGameAcc
 git clone --depth 1 https://github.com/esirplayground/luci-app-LingTiGameAcc
 git clone --depth 1 -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic
@@ -168,6 +172,7 @@ mv -n luciapp/* ./ ; rm -Rf luciapp
 #mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
 mv -n openwrt-package/* ./ ; rm -Rf openwrt-package
 
+rm -rf luci-app-samba
 rm -rf ./*/.git & rm -f ./*/.gitattributes
 rm -rf ./*/.svn & rm -rf ./*/.github & rm -rf ./*/.gitignore
 
