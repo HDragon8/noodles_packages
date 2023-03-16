@@ -138,6 +138,8 @@ svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-xunle
 svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav
 svn export https://github.com/immortalwrt/packages/trunk/net/gowebdav
 
+rm -rf luci-app-netdata
+
 git_sparse_clone develop "https://github.com/Ysurac/openmptcprouter-feeds" "enmptcp" luci-app-snmpd \
 luci-app-packet-capture luci-app-mail msmtp
 git_sparse_clone master "https://github.com/x-wrt/com.x-wrt" "x-wrt" natflow lua-ipops luci-app-macvlan
