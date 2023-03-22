@@ -148,14 +148,15 @@ git_sparse_clone master "https://github.com/xiaoqingfengATGH/feeds-xiaoqingfeng"
 git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpkg" net/miniupnpd net/mwan3 multimedia/UnblockNeteaseMusic-Go \
 multimedia/UnblockNeteaseMusic net/amule net/antileech net/baidupcs-web net/frp multimedia/gmediarender net/go-aliyundrive-webdav \
 net/qBittorrent-static net/qBittorrent net/transmission net/phtunnel libs/qtbase libs/qttools libs/rblibtorrent \
-net/uugamebooster net/verysync net/vlmcsd net/dnsforwarder net/nps net/tcpping net/netatalk net/pgyvpn
+net/uugamebooster net/verysync net/vlmcsd net/dnsforwarder net/nps net/tcpping net/netatalk net/pgyvpn net/n2n
 mv -f miniupnpd miniupnpd-iptables
 
 git_sparse_clone master "https://github.com/immortalwrt/packages" "immpkgs" net/mwol \
 net/sub-web net/dnsproxy net/haproxy net/v2raya net/cdnspeedtest net/keepalived \
 net/subconverter net/ngrokc net/oscam net/njitclient net/scutclient net/gost net/gowebdav \
 admin/bpytop libs/jpcre2 libs/wxbase libs/rapidjson libs/libcron libs/quickjspp libs/toml11 \
-utils/cpulimit utils/filebrowser utils/cups net/udp2raw net/msd_lite net/xfrpc
+utils/cpulimit utils/filebrowser utils/cups net/udp2raw net/msd_lite net/xfrpc net/bitsrunlogin-go \
+utils/phicomm-k3screenctrl net/apinger net/keepalived net/basicstation
 
 git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/kernel/rtl88x2bu \
 package/kernel/r8168 package/kernel/rtl8821cu package/kernel/rtl8189es package/emortal/autocore  package/emortal/automount package/network/utils/fullconenat \
@@ -167,7 +168,7 @@ mv -f applications luciapp
 git_sparse_clone master "https://github.com/immortalwrt/luci" "immluci" applications protocols/luci-proto-minieap
 mv -n applications/* luciapp/; rm -rf applications
 
-git_sparse_clone master "https://github.com/coolsnowwolf/lede" "leanlede" package/lean package/network/services/shellsync
+git_sparse_clone master "https://github.com/coolsnowwolf/lede" "leanlede" package/lean package/network/services/shellsync package/network/services/e2guardian
 mv -n lean/* luciapp/; rm -rf lean
 rm -rf luciapp/default-settings
 
@@ -178,6 +179,8 @@ mv -n openwrt-package/* ./ ; rm -Rf openwrt-package
 rm -rf luci-app-samba
 rm -rf ./*/.git & rm -f ./*/.gitattributes
 rm -rf ./*/.svn & rm -rf ./*/.github & rm -rf ./*/.gitignore
+#删除没有依赖的包
+rm -rf luci-app-noddos
 
 sed -i \
 -e 's?include \.\./\.\./\(lang\|devel\)?include $(TOPDIR)/feeds/packages/\1?' \
