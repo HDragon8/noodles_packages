@@ -156,7 +156,7 @@ net/sub-web net/dnsproxy net/haproxy net/v2raya net/cdnspeedtest net/keepalived 
 net/subconverter net/ngrokc net/oscam net/njitclient net/scutclient net/gost net/gowebdav \
 admin/bpytop libs/jpcre2 libs/wxbase libs/rapidjson libs/libcron libs/quickjspp libs/toml11 \
 utils/cpulimit utils/filebrowser utils/cups net/udp2raw net/msd_lite net/xfrpc net/bitsrunlogin-go \
-utils/phicomm-k3screenctrl net/apinger net/keepalived net/basicstation
+utils/phicomm-k3screenctrl net/apinger net/keepalived net/basicstation libs/sx1302_hal
 
 git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/kernel/rtl88x2bu \
 package/kernel/r8168 package/kernel/rtl8821cu package/kernel/rtl8189es package/emortal/autocore  package/emortal/automount package/network/utils/fullconenat \
