@@ -1,51 +1,39 @@
-#!/usr/bin/ucode
-/* Copyright (C) 2022 ImmortalWrt.org */
+#!/bin/sh
 
-'use strict';
+a=$(ip address | grep ^[0-9] | awk -F: '{print $2}' | sed "s/ //g" | grep '^[e]' | grep -v "@" | grep -v "\.")
+b=$(echo "$a" | wc -l)
+rm -f /tmp/state/ethinfo
 
-import { connect } from 'ubus';
+echo -n "[" > /tmp/state/ethinfo
 
-const ubus = connect();
-const stat = ubus.call('network.device', 'status', {});
-if (!stat) {
-	print('{}');
-	exit(1);
-}
+for i in $(seq 1 $b)
+do
+	h=$(echo '{"name":' )
+	c=$(echo "$a" | sed -n ${i}p)
+	d=$(ethtool $c)
 
-let eth_info = [];
-for (let ifname in stat) {
-	if (!ifname || stat[ifname]?.devtype !== 'ethernet' || !length(stat[ifname]['link-advertising']))
-		continue;
-
-	let status, speed, duplex;
-
-	if (stat[ifname]?.carrier)
-		status = 'yes';
+	e=$(echo "$d" | grep "Link detected" | awk -F: '{printf $2}' | sed 's/^[ \t]*//g')
+	if [ $e = yes ]; then
+		l=1
 	else
-		status = 'no';
+		l=0
+	fi
 
-	if (!stat[ifname]?.carrier || !stat[ifname]?.speed || substr(stat[ifname]?.speed, 0, 1) === '-')
-		speed = '-';
+	f=$(echo "$d" | grep "Speed" | awk -F: '{printf $2}' | sed 's/^[ \t]*//g' | tr -d "Unknown!")
+	[ -z "$f" ] && f=" - "
+
+	g=$(echo "$d" | grep "Duplex" | awk -F: '{printf $2}' | sed 's/^[ \t]*//g')
+	if [ "$g" == "Full" ]; then
+		x=1
 	else
-		speed = substr(stat[ifname]?.speed, 0, -1) + 'Mb/s';
+		x=0
+	fi
 
-	if (speed == '-')
-		duplex = '-';
-	else if (substr(stat[ifname]?.speed, -1) === 'F')
-		duplex = 'Full';
-	else
-		duplex = 'Half';
+	echo -n "$h \"$c\", \"status\": $l, \"speed\": \"$f\", \"duplex\": $x}," >> /tmp/state/ethinfo
+done
 
-	push(eth_info, {
-		name: ifname,
-		status: status,
-		speed: speed,
-		duplex: duplex,
-	});
-}
+sed -i 's/.$//' /tmp/state/ethinfo
 
-sort(eth_info, (a, b) => {
-	return a?.name > b?.name;
-});
+echo -n "]" >> /tmp/state/ethinfo
 
-print(eth_info);
+cat /tmp/state/ethinfo
