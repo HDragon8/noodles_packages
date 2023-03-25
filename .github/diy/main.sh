@@ -200,8 +200,7 @@ sed -i 's/\(+luci-compat\)/\1 +luci-theme-design/' luci-app-design-config/Makefi
 sed -i 's/\(+luci-compat\)/\1 +luci-theme-argonne/' luci-app-argonne-config/Makefile
 sed -i 's/ +uhttpd-mod-ubus//' luci-app-packet-capture/Makefile
 sed -i 's/	ip.neighbors/	luci.ip.neighbors/' luci-app-wifidog/luasrc/model/cbi/wifidog/wifidog_cfg.lua
-sed -i "s/nas/services/g" `grep nas -rl luci-app-fileassistant`
-sed -i "s/NAS/Services/g" `grep NAS -rl luci-app-fileassistant`
+sed -i -e 's/nas/services/g' -e 's/NAS/Services/g' $(grep -rl 'nas\|NAS' luci-app-fileassistant)
 #find -type f -name Makefile -exec sed -ri  's#mosdns[-_]neo#mosdns#g' {} \;
 
 rm -rf luci-app-adguardhome/po/zh_Hans
