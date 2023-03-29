@@ -161,7 +161,7 @@ utils/cpulimit utils/filebrowser utils/cups net/udp2raw net/msd_lite net/xfrpc n
 utils/phicomm-k3screenctrl net/apinger net/keepalived net/basicstation libs/sx1302_hal
 
 git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/kernel/rtl88x2bu \
-package/kernel/r8168 package/kernel/rtl8821cu package/kernel/rtl8189es package/emortal/autocore  package/emortal/automount package/network/utils/fullconenat \
+package/kernel/r8168 package/kernel/rtl8821cu package/kernel/rtl8189es package/emortal/autocore package/emortal/automount package/network/utils/fullconenat \
 package/utils/mhz
 
 git_sparse_clone master "https://github.com/coolsnowwolf/luci" "leluci" applications libs/luci-lib-fs
