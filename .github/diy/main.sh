@@ -138,7 +138,7 @@ svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-xunle
 svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav
 svn export https://github.com/immortalwrt/packages/trunk/net/gowebdav
 #svn export https://github.com/kiddin9/openwrt-packages/trunk/autocore
-svn export https://github.com/istoreos/istoreos/trunk/package/istoreos-files
+#svn export https://github.com/istoreos/istoreos/trunk/package/istoreos-files
 
 rm -rf luci-app-netdata
 
