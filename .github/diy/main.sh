@@ -207,6 +207,13 @@ sed -i -e 's/nas/services/g' -e 's/NAS/Services/g' $(grep -rl 'nas\|NAS' luci-ap
 rm -rf luci-app-adguardhome/po/zh_Hans
 cp -Rf luci-app-adguardhome/po/zh-cn luci-app-adguardhome/po/zh_Hans
 
+rm -rf luci-app-wxedge/po/zh_Hans
+cp -Rf luci-app-wxedge/po/zh-cn luci-app-wxedge/po/zh_Hans
+rm -rf luci-app-wifischedule/po/zh_Hans
+cp -Rf luci-app-wifischedule/po/zh-cn luci-app-wifischedule/po/zh_Hans
+rm -rf luci-app-minidlna/po/zh_Hans
+cp -Rf luci-app-minidlna/po/zh-cn luci-app-minidlna/po/zh_Hans
+
 #bash diy/create_acl_for_luci.sh -a >/dev/null 2>&1
 #bash diy/convert_translation.sh -a >/dev/null 2>&1
 
