@@ -141,7 +141,7 @@ svn export https://github.com/kiddin9/openwrt-packages/trunk/autocore
 #svn export https://github.com/istoreos/istoreos/trunk/package/istoreos-files
 svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-base
 svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-mod-status
-
+svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-mod-system
 rm -rf luci-app-netdata
 
 git_sparse_clone develop "https://github.com/Ysurac/openmptcprouter-feeds" "enmptcp" luci-app-snmpd \
